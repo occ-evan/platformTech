@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Neurolink Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+.main{
+    width:100%;
+    display:flex;
+    gap:25px;
+    padding:25px;
+}
+
+.sidebar{
+    width:290px;
+    background:rgba(5,10,25,0.7);
+    border:1px solid rgba(0,140,255,0.12);
+    border-radius:22px;
+    padding:20px;
+    backdrop-filter:blur(12px);
+}
+
+.device-preview{
+    width:100%;
+    height:180px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#6d7f97;
+    font-size:0.9rem;
+    margin-bottom:20px;
+    background-image: url("images/102.PNG");
+    background-size: cover;
+    background-position: center;
+}
+
+.device-name{
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.status{
+    color:#00ff88;
+    font-size:0.9rem;
+    margin-bottom:20px;
+}
+
+.sidebar-btn{
+    width:100%;
+    height:52px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.03);
+    color:white;
+    margin-bottom:14px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.sidebar-btn:hover{
+    background:#0c1f3f;
+    border-color:#1e90ff;
+}
+
+.sidebar-section{
+    margin-top:30px;
+}
+
+.sidebar-section h3{
+    font-size:1rem;
+    margin-bottom:18px;
+    color:#dce7f7;
+}
+
+.quick-link{
+    width:100%;
+    padding:14px 15px;
+    border-radius:12px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+    color:#b8c5d8;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.quick-link:hover{
+    background:#0c1f3f;
+    color:white;
+}
+
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.hero{
+    width:100%;
+    min-height:260px;
+    border-radius:26px;
+    overflow:hidden;
+    position:relative;
+    border:1px solid rgba(0,140,255,0.15);
+    background:linear-gradient(to right,#050c1d 35%,#08172d 100%);
+    display:flex;
+    justify-content:space-between;
+}
+
+.hero-left{
+    width:50%;
+    padding:45px;
+}
+
+.hero-left h1{
+    font-size:3rem;
+    margin-bottom:12px;
+}
+
+.hero-left p{
+    color:#b2c0d2;
+    line-height:1.7;
+    max-width:500px;
+}
+
+.search-box{
+    width:100%;
+    margin-top:30px;
+    height:60px;
+    border-radius:18px;
+    background:#071120;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:0 22px;
+    color:white;
+    font-size:1rem;
+}
+
+.hero-image{
+    width:45%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.image-placeholder{
+    position: absolute;
+    width:600px;
+    height:600px;
+    border-radius:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#607089;
+    font-size:1rem;
+    background:rgba(255,255,255,0.02);
+    background-image: url("images/lastFeature.png");
+    background-size: cover;
+    background-position: center;
+    -webkit-mask-image: linear-gradient(to right, transparent, black);
+    mask-image: linear-gradient(to right, transparent, black);
+    -webkit-mask-composite: intersect;
+    mask-composite: intersect;
+}
+
+.cards{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+
+.card{
+    background:rgba(7,14,28,0.9);
+    border:1px solid rgba(0,140,255,0.12);
+    border-radius:22px;
+    padding:25px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#1e90ff;
+}
+
+/* ── Icon container ── */
+.card-icon{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#0a1b38,#0f274e);
+    margin-bottom:20px;
+    box-shadow:0 0 20px rgba(30,144,255,0.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card-icon svg{
+    width:34px;
+    height:34px;
+    filter: drop-shadow(0 0 5px rgba(30,144,255,0.6));
+}
+
+.card h2{
+    font-size:1.2rem;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#a7b5c9;
+    font-size:0.95rem;
+    line-height:1.6;
+}
+
+.info-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.panel{
+    background:rgba(7,14,28,0.9);
+    border:1px solid rgba(0,140,255,0.12);
+    border-radius:24px;
+    padding:28px;
+}
+
+.panel h2{
+    margin-bottom:22px;
+}
+
+.article{
+    width:100%;
+    padding:18px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    color:#c4d0df;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.article:hover{
+    color:#1e90ff;
+    background:rgba(255,255,255,0.02);
+}
+
+.trouble-item{
+    width:100%;
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:14px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.trouble-item h3{
+    margin-bottom:8px;
+}
+
+.trouble-item p{
+    color:#a6b3c5;
+    line-height:1.6;
+}
+
+.bottom-help{
+    width:100%;
+    background:rgba(7,14,28,0.9);
+    border:1px solid rgba(0,140,255,0.12);
+    border-radius:24px;
+    padding:35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.bottom-help h2{
+    margin-bottom:10px;
+}
+
+.bottom-help p{
+    color:#aab8ca;
+}
+
+.bottom-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.bottom-buttons button{
+    width:180px;
+    height:56px;
+    border:none;
+    border-radius:16px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.support-btn{
+    background:#1e90ff;
+    color:white;
+    box-shadow:0 0 20px rgba(30,144,255,0.35);
+}
+
+.support-btn:hover{
+    transform:translateY(-3px);
+}
+
+.chat-btn{
+    background:transparent;
+    border:1px solid #1e90ff !important;
+    color:#1e90ff;
+}
+
+.chat-btn:hover{
+    background:#0b1830;
+}
+
+@media(max-width:1400px){
+    .cards{ grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:1100px){
+    .main{ flex-direction:column; }
+    .sidebar{ width:100%; }
+    .hero{ flex-direction:column; }
+    .hero-left,.hero-image{ width:100%; }
+    .info-grid{ grid-template-columns:1fr; }
+}
+
+@media(max-width:700px){
+    .navbar{ padding:0 20px; }
+    .nav-links{ display:none; }
+    .cards{ grid-template-columns:1fr; }
+    .hero-left h1{ font-size:2.2rem; }
+    .bottom-help{ flex-direction:column; gap:25px; align-items:flex-start; }
+    .bottom-buttons{ width:100%; flex-direction:column; }
+    .bottom-buttons button{ width:100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navContainer">
+    <nav class="navbar">
+        <a href="index.html" class="logo">NEUROLINK</a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="features.html">FEATURES</a>
+            <a href="technology.html">TECHNOLOGY</a>
+            <a href="support.html" class="active">SUPPORT</a>
+        </div>
+    </nav>
+</div>
+
+<div class="main">
+
+    <aside class="sidebar">
+        <div class="device-preview"></div>
+        <div class="device-name">Neurolink Headband</div>
+        <div class="status">&#9679; Connected</div>
+        <button class="sidebar-btn">View Device</button>
+        <div class="sidebar-section">
+            <h3>Need Help?</h3>
+            <button class="sidebar-btn">Contact Support</button>
+            <button class="sidebar-btn">Live Chat</button>
+        </div>
+        <div class="sidebar-section">
+            <h3>Quick Links</h3>
+            <div class="quick-link">User Guide</div>
+            <div class="quick-link">Video Tutorials</div>
+            <div class="quick-link">Community Forum</div>
+            <div class="quick-link">Warranty &amp; Returns</div>
+        </div>
+    </aside>
+
+    <section class="content">
+
+        <div class="hero">
+            <div class="hero-left">
+                <h1>SUPPORT CENTER</h1>
+                <p>Find answers, troubleshooting tips, and resources to keep your Neurolink experience seamless.</p>
+                <input type="text" class="search-box" placeholder="Search help articles, topics, and more...">
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
+
+        <div class="cards">
+
+            <!-- 1. Getting Started — WiFi icon -->
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- outer arc -->
+                        <path d="M1.5 8.5C4.9 5.2 8.25 3.5 12 3.5s7.1 1.7 10.5 5" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- middle arc -->
+                        <path d="M4.9 12a10 10 0 0 1 14.2 0" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- inner arc -->
+                        <path d="M8.4 15.4a5.2 5.2 0 0 1 7.2 0" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- dot -->
+                        <circle cx="12" cy="19.5" r="1.6" fill="#1e90ff"/>
+                    </svg>
+                </div>
+                <h2>Getting Started</h2>
+                <p>Set up your device and explore the basic features.</p>
+            </div>
+
+            <!-- 2. Connectivity — Hotspot / radiating signal waves -->
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- center dot -->
+                        <circle cx="12" cy="12" r="2" fill="#1e90ff"/>
+                        <!-- inner left arc -->
+                        <path d="M9.8 9.8a3.1 3.1 0 0 0 0 4.4" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- inner right arc -->
+                        <path d="M14.2 9.8a3.1 3.1 0 0 1 0 4.4" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- outer left arc -->
+                        <path d="M7 7a7 7 0 0 0 0 10" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+                        <!-- outer right arc -->
+                        <path d="M17 7a7 7 0 0 1 0 10" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h2>Connectivity</h2>
+                <p>Troubleshoot WiFi, Bluetooth, and device pairing.</p>
+            </div>
+
+            <!-- 3. Battery & Charging — battery body + lightning bolt -->
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- battery outline -->
+                        <rect x="1" y="7" width="18" height="10" rx="2.5" stroke="#1e90ff" stroke-width="1.8"/>
+                        <!-- positive terminal -->
+                        <path d="M21 10v4" stroke="#1e90ff" stroke-width="2" stroke-linecap="round"/>
+                        <!-- lightning bolt -->
+                        <path d="M11.2 8.5 7.5 12.8h3.3l-1.8 2.7 5.5-5.8h-3.3V8.5z"
+                              fill="#1e90ff" stroke="none"/>
+                    </svg>
+                </div>
+                <h2>Battery &amp; Charging</h2>
+                <p>Learn about charging, battery life, and power saving.</p>
+            </div>
+
+            <!-- 4. Brain Interface — brainwave / EEG pulse -->
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polyline
+                            points="1,12 4,12 5.5,7 7,17 8.5,9.5 10,14.5 11.5,12 13,4 14.5,20 16,12 19,12 23,12"
+                            stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                            fill="none"/>
+                    </svg>
+                </div>
+                <h2>Brain Interface</h2>
+                <p>Understand neural controls, commands, and settings.</p>
+            </div>
+
+            <!-- 5. Safety & Privacy — shield with checkmark -->
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- shield -->
+                        <path d="M12 2L4 5.5V11c0 4.7 3.4 9 8 10.4C17.6 20 21 15.7 21 11V5.5L12 2z"
+                              stroke="#1e90ff" stroke-width="1.8" stroke-linejoin="round"/>
+                        <!-- checkmark -->
+                        <path d="M8.5 12l2.5 2.5 4.5-5"
+                              stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>Safety &amp; Privacy</h2>
+                <p>Privacy, security, and safe usage information.</p>
+            </div>
+
+        </div>
+
+        <div class="info-grid">
+
+            <div class="panel">
+                <h2>Popular Articles</h2>
+                <div class="article">How do I charge my Neurolink headband?</div>
+                <div class="article">How do I connect to a different WiFi network?</div>
+                <div class="article">What do the LED lights mean?</div>
+                <div class="article">How does brain-control work?</div>
+                <div class="article">How can I improve battery life?</div>
+            </div>
+
+            <div class="panel">
+                <h2>Troubleshooting</h2>
+                <div class="trouble-item">
+                    <h3>Connection Issues</h3>
+                    <p>Fix issues with WiFi connection or device pairing.</p>
+                </div>
+                <div class="trouble-item">
+                    <h3>Charging Problems</h3>
+                    <p>Device not charging or battery draining quickly.</p>
+                </div>
+                <div class="trouble-item">
+                    <h3>Signal Problems</h3>
+                    <p>Weak or inconsistent brain signal detection.</p>
+                </div>
+                <div class="trouble-item">
+                    <h3>Device Not Responding</h3>
+                    <p>Restart, reset, and firmware recovery solutions.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bottom-help">
+            <div>
+                <h2>Still Need Help?</h2>
+                <p>Our support team is available 24/7 to assist you.</p>
+            </div>
+            <div class="bottom-buttons">
+                <button class="support-btn">Contact Support</button>
+                <button class="chat-btn">Live Chat</button>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footerName">
+        &copy; 2026 NEUROLINK &mdash; Future Neural Connectivity
+    </div>
+</footer>
+
+</body>
+</html>

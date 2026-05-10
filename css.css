@@ -1,0 +1,165 @@
+/* =====================
+   css.css — Global Styles
+   Shared across all pages
+   ===================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+
+.navContainer {
+    width: 100%;
+    height: 90px;
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #8bbcff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+}
+
+.nav-btn {
+    background: linear-gradient(90deg, #006eff, #18d0ff);
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+}
+
+.nav-btn:hover {
+    opacity: 0.85;
+}
+
+/* =====================
+   SHARED UTILITIES
+   ===================== */
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, #008cff, #00e1ff);
+    color: white;
+    box-shadow: 0 0 25px rgba(0, 140, 255, 0.35);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(0, 140, 255, 0.5);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid #1e6dff;
+    color: #8dc4ff;
+}
+
+.secondary-btn:hover {
+    background: #091a3f;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+
+.site-footer {
+
+    padding: 30px 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: center;
+    color: #5a7090;
+    font-size: 14px;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 900px) {
+    .nav-links { gap: 24px; }
+    .logo { font-size: 1.6rem; }
+}
+
+@media (max-width: 700px) {
+    .navbar { padding: 0 6%; }
+    .nav-links { display: none; }
+    .logo { font-size: 1.5rem; }
+}
+
+
+

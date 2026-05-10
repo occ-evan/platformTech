@@ -1,0 +1,321 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NEUROLINK — Brain-Controlled WiFi Headband</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        /* ---- HERO IMAGES ---- */
+        .header-images {
+            width: 100%;
+            height: 500px;
+            display: flex;
+        }
+
+        .man-image {
+            width: 50%;
+            height: 100%;
+            background: url("images/model.PNG") center / 400px no-repeat;
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .robot-image {
+            width: 50%;
+            height: 100%;
+            background: url("images/robot.png") center / cover;
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            width: 100%;
+            padding: 60px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-left { flex: 1; }
+
+        .tag {
+            color: #3ca6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            line-height: 1.05;
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            color: #a0b4cc;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 36px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ---- HERO RIGHT ---- */
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-right img {
+            width: 100%;
+            max-width: 560px;
+            filter: drop-shadow(0 0 40px rgba(0, 162, 255, 0.4));
+        }
+
+        .status-card {
+            position: absolute;
+            bottom: 57px;
+            left: 0;
+            width: 260px;
+            background: rgba(8, 17, 35, 0.8);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(67, 122, 255, 0.3);
+            border-radius: 22px;
+            padding: 22px;
+            box-shadow: 0 0 30px rgba(0, 119, 255, 0.15);
+        }
+
+        .status-card h3 {
+            color: #3ca6ff;
+            font-size: 14px;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #cdd9ee;
+        }
+
+        .connected { color: #00e68a; font-weight: 600; }
+
+        .battery-bar {
+            width: 100%;
+            height: 8px;
+            background: #112342;
+            border-radius: 30px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .battery-fill {
+            width: 82%;
+            height: 100%;
+            background: linear-gradient(90deg, #00e68a, #00c3ff);
+        }
+
+        /* ---- APP SECTION ---- */
+        .app-section {
+            width: 100%;
+            padding: 60px 8% 100px;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .app-left { flex: 1; }
+
+        .app-left h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .app-left p {
+            color: #9eb1ce;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 440px;
+        }
+
+        .app-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-ui {
+            width: 300px;
+            background: #091427;
+            border-radius: 40px;
+            padding: 24px;
+            border: 1px solid #1b3560;
+            box-shadow: 0 0 40px rgba(0, 140, 255, 0.2);
+        }
+
+        .phone-header {
+            text-align: center;
+            margin-bottom: 24px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .network-card {
+            background: #101d36;
+            padding: 18px;
+            border-radius: 18px;
+            margin-bottom: 16px;
+        }
+
+        .network-card h3 {
+            color: #00e68a;
+            font-size: 13px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .network-card p { color: #8bbcff; font-size: 14px; }
+
+        .network-list { display: flex; flex-direction: column; gap: 10px; }
+
+        .network-item {
+            background: #132443;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: #b4ccee;
+            font-size: 14px;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1000px) {
+            .hero, .app-section { flex-direction: column; }
+            .hero-right, .app-right { width: 100%; }
+            .status-card { position: static; margin-top: 24px; width: 100%; max-width: 300px; }
+            .hero-title { font-size: 3.2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.6rem; }
+            .app-left h1 { font-size: 2.2rem; }
+        }
+        .deviceImage{
+            position: absolute;
+            margin-top: 200px;
+        }
+
+        .footerName{
+            margin-top: -30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navContainer">
+        <nav class="navbar">
+            <a href="index.html" class="logo">NEUROLINK</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">HOME</a>
+                <a href="features.html">FEATURES</a>
+                <a href="technology.html">TECHNOLOGY</a>
+                <a href="support.html">SUPPORT</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HERO IMAGES -->
+    <div class="header-images">
+        <div class="man-image"></div>
+        <div class="robot-image"></div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <p class="tag">BRAIN-CONTROLLED WIFI HEADBAND</p>
+            <h1 class="hero-title">CONTROL<br>IS IN<br>YOUR MIND</h1>
+            <p class="hero-description">
+                The future of neural connectivity has arrived.
+                Neurolink uses advanced EEG technology and AI-powered
+                signal processing to transform your thoughts into
+                real-time wireless commands.
+            </p>
+            <div class="hero-buttons">
+                <a class="btn primary-btn" href="preOrder.html">Pre Order</a>
+                <a class="btn secondary-btn" href="features.html">Explore Features</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            
+            <div class="status-card">
+                <h3>CONNECTION STATUS</h3>
+                <div class="status-row"><span>Network</span><span class="connected">CONNECTED</span></div>
+                <div class="status-row"><span>Signal</span><span>98%</span></div>
+                <div class="status-row"><span>Battery</span><span>82%</span></div>
+                <div class="battery-bar"><div class="battery-fill"></div></div>
+            </div>
+            <div class="deviceImage">
+            <img src="images/100.PNG" alt="Neurolink Headband">
+            </div>
+        </div>
+    </section>
+
+    <!-- APP SECTION -->
+    <section class="app-section">
+        <div class="app-left">
+            <h1>SMART MOBILE CONTROL</h1>
+            <p>
+                Monitor connection status, neural signal activity,
+                battery life, and connected devices through the
+                Neurolink mobile application with real-time syncing.
+            </p>
+            <a class="btn primary-btn" href="download.html">Download App</a>
+        </div>
+
+        <div class="app-right">
+            <div class="phone-ui">
+                <div class="phone-header">NEUROLINK</div>
+                <div class="network-card">
+                    <h3>CONNECTED</h3>
+                    <p>Home_Net_5G</p>
+                </div>
+                <div class="network-list">
+                    <div class="network-item">Office_WiFi</div>
+                    <div class="network-item">Cafe_Free_WiFi</div>
+                    <div class="network-item">Airport_5G</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+     
+    <footer class="site-footer">
+        <div class="footerName">
+        © 2026 NEUROLINK — Future Neural Connectivity
+        </div>
+    </footer>
+
+</body>
+</html>

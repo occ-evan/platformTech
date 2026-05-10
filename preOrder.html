@@ -1,0 +1,627 @@
+<!-- preorder.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEUROLINK — Preorder</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css.css">
+
+<style>
+
+:root{
+    --bg:#030712;
+    --panel:rgba(8,18,33,.78);
+    --border:rgba(56,189,248,.16);
+    --accent:#38bdf8;
+    --text:#e8f1ff;
+    --muted:#8fa8cc;
+    --radius:28px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/* PAGE */
+
+.page-content{
+    width:100%;
+    padding:40px 8% 90px;
+}
+
+/* HERO */
+
+.preorder-hero{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+    margin-bottom:70px;
+}
+
+.tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border-radius:50px;
+    background:rgba(56,189,248,.08);
+    border:1px solid rgba(56,189,248,.18);
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:25px;
+}
+
+.preorder-hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:24px;
+}
+
+.preorder-hero h1 span{
+    color:var(--accent);
+}
+
+.hero-description{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:1rem;
+    max-width:650px;
+    margin-bottom:35px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    height:58px;
+    padding:0 34px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(90deg,#0ea5e9,#2563eb);
+    color:white;
+    font-weight:600;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(56,189,248,.25);
+}
+
+.secondary-btn{
+    height:58px;
+    padding:0 34px;
+    border-radius:18px;
+    border:1px solid rgba(56,189,248,.18);
+    background:rgba(255,255,255,.03);
+    color:white;
+    font-weight:500;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+}
+
+/* IMAGE */
+
+.hero-image{
+    position:relative;
+}
+
+.image-glow{
+    position:absolute;
+    inset:0;
+    background:rgba(0,180,255,.15);
+    filter:blur(100px);
+    border-radius:50%;
+}
+
+.image-card{
+    position:absolute;
+    width: 1300px;
+    height:1800px;
+    left: -730px;
+    top: -580px;
+    border-radius:40px;
+    overflow:hidden;
+    /* background:rgba(255,255,255,.03); */
+    /* border:1px solid var(--border); */
+    /* backdrop-filter:blur(18px); */
+    background-image: url("images/bg.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* .image-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+} */
+
+/* PANEL */
+
+.panel{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    backdrop-filter:blur(14px);
+    padding:32px;
+}
+
+/* SECTION TITLE */
+
+.section-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:2.3rem;
+    margin-bottom:28px;
+}
+
+/* FEATURES */
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:70px;
+}
+
+.feature-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:28px;
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--accent);
+    box-shadow:0 0 30px rgba(56,189,248,.12);
+}
+
+.feature-number{
+    font-family:'Orbitron',sans-serif;
+    font-size:2rem;
+    color:var(--accent);
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+    margin-bottom:12px;
+    font-size:1rem;
+}
+
+.feature-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:.95rem;
+}
+
+/* PREORDER GRID */
+
+.preorder-grid{
+    display:grid;
+    grid-template-columns:1fr .8fr;
+    gap:24px;
+    margin-bottom:60px;
+}
+
+/* FORM */
+
+.preorder-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.preorder-form input,
+.preorder-form select{
+    width:100%;
+    height:60px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:0 20px;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+.preorder-form option{
+    background:#081221;
+}
+
+.submit-btn{
+    height:62px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(90deg,#0ea5e9,#2563eb);
+    color:white;
+    font-weight:600;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(56,189,248,.25);
+}
+
+/* INFO BOX */
+
+.info-column{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.info-box{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:26px;
+}
+
+.info-box h3{
+    color:var(--accent);
+    font-family:'Orbitron',sans-serif;
+    margin-bottom:14px;
+    font-size:1rem;
+}
+
+.info-box p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* STATS */
+
+.stats-section{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    flex:1;
+    min-width:220px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:30px;
+}
+
+.stat-box h2{
+    font-size:3rem;
+    color:var(--accent);
+    font-weight:300;
+    margin-bottom:8px;
+}
+
+.stat-box p{
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+.site-footer{
+    padding:30px 0 10px;
+    text-align:center;
+    color:#6f87aa;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .preorder-hero{
+        grid-template-columns:1fr;
+    }
+
+    .features-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .preorder-grid{
+        grid-template-columns:1fr;
+    }
+
+    .preorder-hero h1{
+        font-size:4rem;
+    }
+}
+
+@media(max-width:700px){
+
+    .features-grid{
+        grid-template-columns:1fr;
+    }
+
+    .preorder-hero h1{
+        font-size:3rem;
+    }
+
+    .page-content{
+        padding:30px 6% 70px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navContainer">
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+NEUROLINK
+</a>
+
+<div class="nav-links">
+<a href="index.html">HOME</a>
+<a href="features.html">FEATURES</a>
+<a href="technology.html">TECHNOLOGY</a>
+<a href="support.html">SUPPORT</a>
+</div>
+
+</nav>
+
+</div>
+
+<!-- PAGE -->
+
+<div class="page-content">
+
+<!-- HERO -->
+
+<section class="preorder-hero">
+
+<div>
+
+<div class="tag">
+LIMITED PREORDER ACCESS
+</div>
+
+<h1>
+CONTROL THE <span>FUTURE</span>
+</h1>
+
+<p class="hero-description">
+
+Experience the world's first brain-controlled WiFi headband powered by advanced EEG neural synchronization, AI signal processing, and adaptive wireless connectivity.
+
+Reserve your NEUROLINK device before global release.
+
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary-btn">
+PREORDER NOW
+</button>
+
+<button class="secondary-btn">
+WATCH DEMO
+</button>
+
+</div>
+
+</div>
+
+<!-- IMAGE -->
+
+<div class="hero-image">
+
+<div class="image-glow"></div>
+
+<div class="image-card">
+
+<!-- INSERT PRODUCT IMAGE -->
+<img src="" alt="">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section>
+
+<h2 class="section-title">
+WHY PREORDER?
+</h2>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<div class="feature-number">01</div>
+<h3>EARLY ACCESS</h3>
+<p>
+Be among the first users to experience neural connectivity technology.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-number">02</div>
+<h3>LIMITED EDITION</h3>
+<p>
+Exclusive launch edition with premium neural optimization features.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-number">03</div>
+<h3>AI UPDATES</h3>
+<p>
+Receive lifetime AI firmware enhancements and performance upgrades.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-number">04</div>
+<h3>PRIORITY SUPPORT</h3>
+<p>
+Access dedicated neural systems support and advanced diagnostics.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PREORDER FORM -->
+
+<section class="preorder-grid">
+
+<!-- LEFT -->
+
+<div class="panel">
+
+<h2 class="section-title">
+PREORDER FORM
+</h2>
+
+<form class="preorder-form">
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email Address">
+
+<select>
+<option>Select Device Variant</option>
+<option>Standard Edition</option>
+<option>Pro Neural Edition</option>
+<option>Developer Kit</option>
+</select>
+
+<select>
+<option>Select Region</option>
+<option>North America</option>
+<option>Europe</option>
+<option>Asia</option>
+<option>Middle East</option>
+</select>
+
+<input type="text" placeholder="Preferred Delivery Address">
+
+<button class="submit-btn">
+CONFIRM PREORDER
+</button>
+
+</form>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="info-column">
+
+<div class="info-box">
+<h3>EXPECTED RELEASE</h3>
+<p>
+Global rollout begins Q4 2026 with limited production quantities.
+</p>
+</div>
+
+<div class="info-box">
+<h3>SECURE RESERVATION</h3>
+<p>
+Your preorder guarantees a reserved production allocation slot.
+</p>
+</div>
+
+<div class="info-box">
+<h3>NEURAL CLOUD ACCESS</h3>
+<p>
+Includes access to future AI neural synchronization services.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+<div class="stat-box">
+<h2>30D</h2>
+<p>Battery life with solar charging</p>
+</div>
+
+<div class="stat-box">
+<h2>0.2s</h2>
+<p>Average neural response latency</p>
+</div>
+
+<div class="stat-box">
+<h2>99%</h2>
+<p>AI signal interpretation accuracy</p>
+</div>
+
+<div class="stat-box">
+<h2>24/7</h2>
+<p>Priority neural support access</p>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+© 2026 NEUROLINK — Neural Connectivity Evolution
+</footer>
+
+</div>
+
+</body>
+</html>

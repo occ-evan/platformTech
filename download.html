@@ -1,0 +1,403 @@
+<!-- download.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neurolink App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css.css">
+<style>
+
+/* HERO */
+.hero {
+    width: 100%;
+    padding: 70px 60px;
+    margin-top: -50px;
+}
+
+.hero-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    border: 1px solid rgba(0,140,255,.12);
+    border-radius: 35px;
+    padding: 60px;
+    background: rgba(5,14,30,.75);
+    backdrop-filter: blur(16px);
+}
+
+.hero-left { flex: 1; }
+
+.small-title {
+    color: #18a7ff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-size: .9rem;
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero-title span { color: #109dff; }
+
+.hero-description {
+    color: #8fa8cc;
+    line-height: 1.9;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+.checks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #d4e4ff;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+/* Use .btn + .secondary-btn from css.css, but keep the square radius variant */
+.store-btn {
+    padding: 18px 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: #091326;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 1rem;
+}
+
+.store-btn:hover { background: #0e1d39; }
+
+.available { color: #7f95b6; }
+
+/* HERO IMAGE */
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.phone-image {
+    width: 340px;
+    height: 680px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,140,255,.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SYNC SECTION */
+.sync-section {
+    width: 100%;
+    padding: 80px 60px;
+    margin-top: -80px;
+}
+
+.sync-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    background: rgba(5,14,30,.75);
+    border: 1px solid rgba(0,140,255,.12);
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.sync-image {
+    flex: 1;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 50px;
+}
+
+.sync-content {
+    flex: 1;
+    padding: 60px;
+}
+
+.sync-small {
+    color: #18a7ff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.sync-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+}
+
+.sync-description {
+    color: #8fa8cc;
+    line-height: 1.9;
+    margin-bottom: 40px;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat h2 { color: #19a7ff; margin-bottom: 10px; }
+.stat p  { color: #8ea5c7; }
+
+/* FOOTER OVERRIDE — use local card style, not site-footer from css.css */
+.footer {
+    width: 100%;
+    padding: 60px;
+    margin-top: -70px;
+}
+
+.footer-container {
+    background: rgba(5,14,30,.75);
+    border: 1px solid rgba(0,140,255,.12);
+    border-radius: 35px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.footer-description {
+    color: #8ea5c7;
+    line-height: 1.8;
+}
+
+.footer-column h4 { margin-bottom: 25px; }
+
+.footer-column a {
+    display: block;
+    margin-bottom: 15px;
+    color: #8ea5c7;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.footer-column a:hover { color: #19a7ff; }
+
+.newsletter {
+    display: flex;
+    margin-top: 20px;
+}
+
+.newsletter input {
+    flex: 1;
+    background: #091326;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px 0 0 14px;
+    padding: 15px;
+    color: white;
+    outline: none;
+}
+
+.newsletter button {
+    border: none;
+    background: #109dff;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 0 14px 14px 0;
+    cursor: pointer;
+}
+
+.copyright {
+    text-align: center;
+    color: #6f84a4;
+    margin-top: 30px;
+}
+
+.phone  { height: 760px; aspect-ratio: .59; margin-top: 15px; }
+.dlImg  { height: 500px; margin-left: 310px; }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .hero-container,
+    .sync-container  { flex-direction: column; }
+    .footer-container { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+    .hero,
+    .sync-section,
+    .footer { padding: 20px; }
+
+    .hero-container { padding: 30px; }
+    .hero-title     { font-size: 3rem; }
+    .sync-title     { font-size: 2.5rem; }
+
+    .phone-image { width: 100%; max-width: 320px; height: 600px; }
+    .footer-container { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR — uses navContainer + navbar + logo + nav-links from css.css -->
+<div class="navContainer">
+    <nav class="navbar">
+        <a href="index.html" class="logo">NEUROLINK</a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="features.html">FEATURES</a>
+            <a href="technology.html">TECHNOLOGY</a>
+            <a href="brainInt.html">SUPPORT</a>
+        </div>
+    </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-container">
+
+        <div class="hero-left">
+            <p class="small-title">CONNECTIONS IN YOUR MIND</p>
+
+            <h1 class="hero-title">
+                DOWNLOAD <br>
+                <span>NEUROLINK APP</span>
+            </h1>
+
+            <p class="hero-description">
+                Take full control of your connections,
+                monitor your brain activity, manage devices,
+                and customize your experience — all from
+                one powerful app.
+            </p>
+
+            <div class="checks">
+                <div class="check-item">✔ Real-time brainwave monitoring</div>
+                <div class="check-item">✔ Secure &amp; seamless connectivity</div>
+            </div>
+
+            <div class="download-buttons">
+                <button class="store-btn">Download on App Store</button>
+                <button class="store-btn">Get it on Google Play</button>
+            </div>
+
+            <p class="available">Available on iOS 12.0+ and Android 8.0+</p>
+        </div>
+
+        <div class="hero-right">
+            <div class="phone-image">
+                <img class="phone" src="images/phone.png" alt="Neurolink App">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SYNC SECTION -->
+<section class="sync-section">
+    <div class="sync-container">
+
+        <div class="sync-image">
+            <img class="dlImg" src="images/rr.png" alt="Neurolink sync">
+        </div>
+
+        <div class="sync-content">
+            <p class="sync-small">SYNC. CONTROL. CONNECT.</p>
+
+            <h2 class="sync-title">EVERYTHING IN SYNC</h2>
+
+            <p class="sync-description">
+                Neurolink app keeps you in control.
+                Monitor your activity, manage connections,
+                and stay updated — anytime, anywhere.
+            </p>
+
+            <div class="stats">
+                <div class="stat"><h2>30+</h2><p>Supported Networks</p></div>
+                <div class="stat"><h2>Real-time</h2><p>Synchronization</p></div>
+                <div class="stat"><h2>100%</h2><p>Secure Connection</p></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div>
+            <div class="footer-logo">NEUROLINK</div>
+            <p class="footer-description">Connect with your mind.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>PRODUCT</h4>
+            <a href="#">Features</a>
+            <a href="#">Technology</a>
+            <a href="#">App</a>
+            <a href="#">Pricing</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>COMPANY</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>SUPPORT</h4>
+            <a href="#">Help Center</a>
+            <a href="#">User Guide</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Stay Updated</h4>
+            <p class="footer-description">Get the latest updates and news from Neurolink.</p>
+            <div class="newsletter">
+                <input type="email" placeholder="Enter your email">
+                <button>→</button>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="copyright">© 2026 Neurolink. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
