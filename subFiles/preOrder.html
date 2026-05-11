@@ -473,7 +473,7 @@ WATCH DEMO
 
 <!-- FEATURES -->
 
-<section>
+<section class="fade-section">
 
 <h2 class="section-title">
 WHY PREORDER?
@@ -519,7 +519,7 @@ Access dedicated neural systems support and advanced diagnostics.
 
 <!-- PREORDER FORM -->
 
-<section class="preorder-grid">
+<section class="preorder-grid fade-section">
 
 <!-- LEFT -->
 
@@ -591,7 +591,7 @@ Includes access to future AI neural synchronization services.
 
 <!-- STATS -->
 
-<section class="stats-section">
+<section class="stats-section fade-section">
 
 <div class="stat-box">
 <h2>30D</h2>
@@ -625,3 +625,23 @@ Includes access to future AI neural synchronization services.
 
 </body>
 </html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>

@@ -250,7 +250,7 @@
     </div>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero fade-section">
         <div class="hero-left">
             <p class="tag">BRAIN-CONTROLLED WIFI HEADBAND</p>
             <h1 class="hero-title">CONTROL<br>IS IN<br>YOUR MIND</h1>
@@ -282,7 +282,7 @@
     </section>
 
     <!-- APP SECTION -->
-    <section class="app-section">
+    <section class="app-section fade-section">
         <div class="app-left">
             <h1>SMART MOBILE CONTROL</h1>
             <p>
@@ -319,3 +319,23 @@
 
 </body>
 </html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>

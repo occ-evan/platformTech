@@ -142,11 +142,11 @@
         </nav>
     </div>
         <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
-        <div class="image5"></div>
-        <div class="image6"></div>
+        <div class="image2 fade-section"></div>
+        <div class="image3 fade-section"></div>
+        <div class="image4 fade-section"></div>
+        <div class="image5 fade-section"></div>
+        <div class="image6 fade-section"></div>
     </div>
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -154,3 +154,23 @@
     </footer>
 </body>
 </html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>

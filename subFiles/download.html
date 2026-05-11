@@ -324,7 +324,7 @@
 </section>
 
 <!-- SYNC SECTION -->
-<section class="sync-section">
+<section class="sync-section fade-section">
     <div class="sync-container">
 
         <div class="sync-image">
@@ -353,7 +353,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer fade-section">
     <div class="footer-container">
 
         <div>
@@ -401,3 +401,23 @@
 
 </body>
 </html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>

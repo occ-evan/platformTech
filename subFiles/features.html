@@ -481,7 +481,7 @@
   </div>
 
   <!-- HERO TEXT -->
-  <div class="leftSection">
+  <div class="leftSection fade-section">
     <div class="tag">
       <div class="pulse"></div>
       NEURAL TECHNOLOGY
@@ -505,7 +505,7 @@
 
 
     <!-- MAIN GRID -->
-    <section class="main-grid">
+    <section class="main-grid fade-section">
 
         <!-- LEFT SIDEBAR -->
         <aside class="sidebar">
@@ -582,7 +582,7 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="section">
+    <section class="section fade-section">
         <div class="panel">
             <h2 class="section-title">HOW IT WORKS</h2>
             <div class="steps-grid">
@@ -607,7 +607,7 @@
     </section>
 
     <!-- KEY FEATURES -->
-    <section class="section" style="padding-top: 0;">
+    <section class="section fade-section" style="padding-top: 0;">
         <div class="panel">
             <h2 class="section-title">KEY FEATURES</h2>
             <div class="features-grid">
@@ -630,3 +630,23 @@
 
 </body>
 </html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>

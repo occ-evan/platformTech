@@ -205,7 +205,7 @@
     border-radius:18px;
     background:linear-gradient(145deg,#0a1b38,#0f274e);
     margin-bottom:20px;
-    box-shadow:0 0 20px rgba(30,144,255,0.25);
+    /* box-shadow:0 0 20px rgba(30,144,255,0.25); */
     display:flex;
     align-items:center;
     justify-content:center;
@@ -213,8 +213,8 @@
 
 .card-icon svg{
     width:34px;
-    height:34px;
-    filter: drop-shadow(0 0 5px rgba(30,144,255,0.6));
+    /* height:34px;
+    filter: drop-shadow(0 0 5px rgba(30,144,255,0.6)); */
 }
 
 .card h2{
@@ -385,7 +385,7 @@
             <button class="sidebar-btn">Contact Support</button>
             <button class="sidebar-btn">Live Chat</button>
         </div>
-        <div class="sidebar-section">
+        <div class="sidebar-section fade-section">
             <h3>Quick Links</h3>
             <div class="quick-link">User Guide</div>
             <div class="quick-link">Video Tutorials</div>
@@ -407,7 +407,7 @@
             </div>
         </div>
 
-        <div class="cards">
+        <div class="cards fade-section">
 
             <!-- 1. Getting Started — WiFi icon -->
             <div class="card">
@@ -479,7 +479,7 @@
             </div>
 
             <!-- 5. Safety & Privacy — shield with checkmark -->
-            <div class="card">
+            <div class="card ">
                 <div class="card-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <!-- shield -->
@@ -496,7 +496,7 @@
 
         </div>
 
-        <div class="info-grid">
+        <div class="info-grid fade-section">
 
             <div class="panel">
                 <h2>Popular Articles</h2>
@@ -529,7 +529,7 @@
 
         </div>
 
-        <div class="bottom-help">
+        <div class="bottom-help fade-section">
             <div>
                 <h2>Still Need Help?</h2>
                 <p>Our support team is available 24/7 to assist you.</p>
@@ -553,3 +553,23 @@
 
 </body>
 </html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>
