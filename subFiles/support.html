@@ -360,16 +360,24 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
 <div class="navContainer">
     <nav class="navbar">
+
         <a href="../index.html" class="logo">NEUROLINK</a>
-        <div class="nav-links">
+
+        <div class="nav-links" id="navLinks">
             <a href="../index.html">HOME</a>
             <a href="features.html">FEATURES</a>
             <a href="technology.html">TECHNOLOGY</a>
             <a href="support.html" class="active">SUPPORT</a>
         </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+
     </nav>
 </div>
 
@@ -571,5 +579,12 @@ const observer = new IntersectionObserver((entries)=>{
 
 sections.forEach((section)=>{
     observer.observe(section);
+});
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
 });
 </script>

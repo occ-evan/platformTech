@@ -226,22 +226,299 @@
         .footerName{
             margin-top: -30px;
         }
+        /* ══════════════════════════════
+   RESPONSIVE FIXES
+   ADD THIS AT THE VERY BOTTOM
+══════════════════════════════ */
+
+/* LARGE TABLET */
+@media (max-width: 1200px){
+
+    .hero{
+        gap: 40px;
+        padding: 40px 6% 70px;
+    }
+
+    .hero-title{
+        font-size: 3.8rem;
+    }
+
+    .hero-right img{
+        max-width: 480px;
+    }
+
+    .deviceImage{
+        margin-top: 140px;
+    }
+
+    .status-card{
+        bottom: 20px;
+        width: 240px;
+    }
+
+    .app-section{
+        gap: 50px;
+        padding: 50px 6% 80px;
+    }
+
+    .app-left h1{
+        font-size: 2.5rem;
+    }
+}
+
+
+/* TABLET */
+@media (max-width: 1000px){
+
+    .header-images{
+        height: 360px;
+    }
+
+    .man-image{
+        background-size: 280px;
+    }
+
+    .hero,
+    .app-section{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left,
+    .app-left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-description,
+    .app-left p{
+        max-width: 650px;
+    }
+
+    .hero-title{
+        font-size: 3.2rem;
+    }
+
+    .hero-right{
+        width: 100%;
+        min-height: 500px;
+    }
+
+    .hero-right img{
+        max-width: 420px;
+    }
+
+    .deviceImage{
+        position: relative;
+        margin-top: 0;
+    }
+
+    .status-card{
+        position: relative;
+        bottom: unset;
+        left: unset;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .app-section{
+        gap: 40px;
+    }
+
+    .phone-ui{
+        width: 320px;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 700px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .header-images{
+        height: 250px;
+    }
+
+    .man-image{
+        background-size: 200px;
+    }
+
+    .robot-image{
+        background-position: center;
+    }
+
+    .hero{
+        padding: 30px 5% 60px;
+        gap: 20px;
+    }
+
+    .tag{
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-title{
+        font-size: 2.4rem;
+        line-height: 1.1;
+        margin-bottom: 18px;
+    }
+
+    .hero-description{
+        font-size: .95rem;
+        line-height: 1.7;
+        margin-bottom: 28px;
+    }
+
+    .hero-buttons{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-buttons .btn{
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .hero-right{
+        min-height: auto;
+    }
+
+    .hero-right img{
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .status-card{
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .status-row{
+        font-size: 12px;
+    }
+
+    .app-section{
+        padding: 40px 5% 70px;
+    }
+
+    .app-left h1{
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .app-left p{
+        font-size: .95rem;
+        line-height: 1.7;
+    }
+
+    .phone-ui{
+        width: 100%;
+        max-width: 300px;
+        border-radius: 30px;
+        padding: 20px;
+    }
+
+    .network-item{
+        font-size: 13px;
+    }
+
+    .footerName{
+        margin-top: 0;
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 480px){
+
+    .header-images{
+        height: 200px;
+    }
+
+    .man-image{
+        background-size: 150px;
+    }
+
+    .hero{
+        padding-top: 20px;
+    }
+
+    .hero-title{
+        font-size: 2rem;
+    }
+
+    .hero-description{
+        font-size: .88rem;
+    }
+
+    .hero-right img{
+        max-width: 260px;
+    }
+
+    .status-card{
+        max-width: 100%;
+    }
+
+    .app-left h1{
+        font-size: 1.7rem;
+    }
+
+    .app-left p{
+        font-size: .88rem;
+    }
+
+    .phone-ui{
+        max-width: 260px;
+        border-radius: 24px;
+    }
+
+    .phone-header{
+        font-size: .95rem;
+    }
+
+    .network-card,
+    .network-item{
+        padding: 12px;
+    }
+
+    .site-footer{
+        padding-inline: 16px;
+    }
+}
     </style>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
-    <div class="navContainer">
-        <nav class="navbar">
-            <a href="index.html" class="logo">NEUROLINK</a>
-            <div class="nav-links">
-                <a href="index.html" class="active">HOME</a>
-                <a href="subFiles/features.html">FEATURES</a>
-                <a href="subFiles/technology.html">TECHNOLOGY</a>
-                <a href="subFiles/support.html">SUPPORT</a>
-            </div>
-        </nav>
-    </div>
+<div class="navContainer">
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">NEUROLINK</a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active">HOME</a>
+            <a href="subFiles/features.html">FEATURES</a>
+            <a href="subFiles/technology.html">TECHNOLOGY</a>
+            <a href="subFiles/support.html">SUPPORT</a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+
+    </nav>
+</div>
 
     <!-- HERO IMAGES -->
     <div class="header-images">
@@ -338,4 +615,12 @@ const observer = new IntersectionObserver((entries)=>{
 sections.forEach((section)=>{
     observer.observe(section);
 });
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+
 </script>

@@ -3,174 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NEUROLINK — Technology</title>
+
     <link rel="stylesheet" href="../css.css">
-        <style>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            overflow-x: hidden;
+        }
+
+        .backgroundImage{
+            width: 100%;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        /* BACKGROUND IMAGE */
+        .image1{
+            width: min(90vw, 1000px);
+            aspect-ratio: 1000 / 1600;
+
+            background-image: url("../images/segmented2.png");
+            background-size: cover;
+            background-position: center;
+
+            transform: rotate(-0.7deg);
+
+            margin: -220px auto 0;
+            opacity: 0.9;
+        }
+
+        /* SHARED IMAGE STYLE */
+        .image2,
+        .image3,
+        .image4,
+        .image5,
+        .image6{
+
+            width: min(85vw, 850px);
+            height: 500px;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+
+            transition: 0.4s ease;
+        }
+
+        /* IMAGE POSITIONS */
+        .image2{
+            background-image: url("../images/feature1.png");
+
+            margin:
+                -140px auto 0 28%;
+
+            -webkit-mask-image:
+                linear-gradient(to right, black 90%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%);
+
+            mask-image:
+                linear-gradient(to right, black 90%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%);
+        }
+
+        .image3{
+            background-image: url("../images/feature5.png");
+
+            margin:
+                70px auto 0 4%;
+
+            -webkit-mask-image:
+                linear-gradient(to right, black 92%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%),
+                linear-gradient(to top, black 100%, transparent 100%);
+
+            mask-image:
+                linear-gradient(to right, black 92%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%),
+                linear-gradient(to top, black 100%, transparent 100%);
+        }
+
+        .image4{
+            background-image: url("../images/feature3.png");
+
+            margin:
+                70px 0 0 auto;
+
+            -webkit-mask-image:
+                linear-gradient(to right, black 90%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%);
+
+            mask-image:
+                linear-gradient(to right, black 90%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%);
+        }
+
+        .image5{
+            background-image: url("../images/feature4-1.png");
+
+            margin:
+                100px auto 0 4%;
+
+            -webkit-mask-image:
+                linear-gradient(to right, black 100%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 80%, transparent 100%),
+                linear-gradient(to top, black 96%, transparent 100%);
+
+            mask-image:
+                linear-gradient(to right, black 95%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 80%, transparent 100%),
+                linear-gradient(to top, black 100%, transparent 100%);
+        }
+
+        .image6{
+            background-image: url("../images/feature6.png");
+
+            margin:
+                100px 0 0 auto;
+
+            -webkit-mask-image:
+                linear-gradient(to right, black 90%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%);
+
+            mask-image:
+                linear-gradient(to right, black 90%, transparent 100%),
+                linear-gradient(to left, black 95%, transparent 100%),
+                linear-gradient(to bottom, black 90%, transparent 100%);
+        }
+
+        .image2,
+        .image3,
+        .image4,
+        .image5,
+        .image6{
+            -webkit-mask-composite: intersect;
+            mask-composite: intersect;
+        }
+
+        /* TABLET */
+        @media (max-width: 1024px){
+
+            .image2,
+            .image3,
+            .image4,
+            .image5,
+            .image6{
+                width: 88vw;
+                height: 420px;
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             .image1{
-                height: 1600px;
-                width: 1000px;
-                transform: rotate(-.7deg);
-                background-image: url("../images/segmented2.png");
-                background-size: cover;
-                margin-left: 90px;
-                margin-top: -300px;
-             }
-            .image2{position: relative;
-                width: 900px;
-                height: 600px;
-                background-image: url("../images/feature1.png");
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                margin-left: 370px;
-                margin-top: -150px;
-                -webkit-mask-image:
-                    linear-gradient(to right, black 90%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%);
-
-                mask-image:
-                    linear-gradient(to right, black 90%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%);
-
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
-
+                margin-top: -120px;
             }
-            .image3{
-                height: 500px;
-                width: 800px;
-                background-image: url("../images/feature5.png");
-                background-size: cover;
-                background-position: center;
-                margin-top: 50px;
-                -webkit-mask-image:
-                    linear-gradient(to right, black 92%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%),
-                    linear-gradient(to top, black 96%, transparent 100%);
 
-                mask-image:
-                    linear-gradient(to right, black 92%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%),
-                    linear-gradient(to top, black 96%, transparent 100%);
-
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
+            .image2{
+                margin-top: -80px;
             }
-             .image4{
-                height: 500px;
-                width: 800px;
-                background-image: url("../images/feature3.png");
-                background-size: cover;
-                margin-left: 400px;
-                margin-top: 50px;
-                -webkit-mask-image:
-                    linear-gradient(to right, black 90%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%);
+        }
 
-                mask-image:
-                    linear-gradient(to right, black 90%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%);
+        /* MOBILE */
+        @media (max-width: 768px){
 
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
+            .image1{
+                width: 100vw;
+                margin-top: -40px;
+            }
 
-             }
-             .image5{
-                height: 500px;
-                width: 800px;
-                background-image: url("../images/feature4-1.png");
-                background-size: cover;
-                background-position: center;
-                margin-top: 100px;
-                 -webkit-mask-image:
-                    linear-gradient(to right, black 95%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 80%, transparent 100%),
-                    linear-gradient(to top, black 96%, transparent 100%);
+            .image2,
+            .image3,
+            .image4,
+            .image5,
+            .image6{
+                width: 100%;
+                height: 280px;
 
-                mask-image:
-                    linear-gradient(to right, black 95%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 80%, transparent 100%),
-                    linear-gradient(to top, black 96%, transparent 100%);
+                margin:
+                    30px auto 0;
 
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
-             }
-             .image6{
-                height: 500px;
-                width: 800px;
-                background-image: url("../images/feature6.png");
-                background-size: cover;
-                background-position: center;
-                margin-left: 400px;
-                margin-top: 100px;
-                -webkit-mask-image:
-                    linear-gradient(to right, black 90%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%);
+                border-radius: 14px;
+            }
 
-                mask-image:
-                    linear-gradient(to right, black 90%, transparent 100%),
-                    linear-gradient(to left, black 95%, transparent 100%),
-                    linear-gradient(to bottom, black 90%, transparent 100%);
+            .backgroundImage{
+                padding-inline: 12px;
+            }
 
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
-             }
-        </style>
+            .image2{
+                margin-top: -40px;
+            }
+        }
+
+        /* SMALL MOBILE */
+        @media (max-width: 480px){
+
+            .image2,
+            .image3,
+            .image4,
+            .image5,
+            .image6{
+                height: 230px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
-    
-    <div class="backgroundImage">
-         <!-- NAVBAR -->
-    <div class="navContainer">
-        <nav class="navbar">
-            <a href="../index.html" class="logo">NEUROLINK</a>
-            <div class="nav-links">
-                <a href="../index.html">HOME</a>
-                <a href="features.html">FEATURES</a>
-                <a href="technology.html" class="active">TECHNOLOGY</a>
-                <a href="support.html">SUPPORT</a>
-            </div>
-        </nav>
-    </div>
-        <div class="image1"></div>
-        <div class="image2 fade-section"></div>
-        <div class="image3 fade-section"></div>
-        <div class="image4 fade-section"></div>
-        <div class="image5 fade-section"></div>
-        <div class="image6 fade-section"></div>
-    </div>
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        © 2026 NEUROLINK — Future Neural Connectivity
-    </footer>
+
+<div class="backgroundImage">
+
+    <!-- NAVBAR -->
+<div class="navContainer">
+    <nav class="navbar">
+
+        <a href="../index.html" class="logo">NEUROLINK</a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="../index.html">HOME</a>
+            <a href="features.html">FEATURES</a>
+            <a href="technology.html" class="active">TECHNOLOGY</a>
+            <a href="support.html">SUPPORT</a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+
+    </nav>
+</div>
+
+    <div class="image1"></div>
+
+    <div class="image2 fade-section"></div>
+
+    <div class="image3 fade-section"></div>
+
+    <div class="image4 fade-section"></div>
+
+    <div class="image5 fade-section"></div>
+
+    <div class="image6 fade-section"></div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    © 2026 NEUROLINK — Future Neural Connectivity
+</footer>
+
 </body>
 </html>
 
 <script>
+
 const sections = document.querySelectorAll('.fade-section');
 
 const observer = new IntersectionObserver((entries)=>{
+
     entries.forEach((entry)=>{
+
         if(entry.isIntersecting){
             entry.target.classList.add('show');
         } else {
             entry.target.classList.remove('show');
         }
+
     });
+
 },{
     threshold: 0.2
 });
 
 sections.forEach((section)=>{
     observer.observe(section);
+});
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
 });
 </script>

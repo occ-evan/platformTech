@@ -450,22 +450,296 @@
         .page-content{
             margin-top: -15px;
         }
+        /* ══════════════════════════════
+   RESPONSIVE FIXES
+   ADD THIS AT THE VERY BOTTOM
+══════════════════════════════ */
+
+/* LARGE LAPTOP */
+@media (max-width: 1400px){
+
+    .leftSection h1{
+        font-size: 64px;
+    }
+
+    .product-image{
+        height: 520px;
+    }
+
+    .sidebar{
+        margin-top: 180px;
+    }
+}
+
+
+/* TABLET */
+@media (max-width: 1200px){
+
+    .main-grid{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sidebar{
+        margin-top: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar .panel{
+        flex: 1 1 300px;
+    }
+
+    .centerpiece{
+        order: -1;
+    }
+
+    .product-image{
+        height: 500px;
+    }
+
+    .steps-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .leftSection h1{
+        font-size: 58px;
+    }
+
+    .description{
+        margin-top: -40px;
+    }
+
+    .imageGlow{
+        width: 420px;
+        height: 420px;
+    }
+}
+
+
+/* MOBILE TABLET */
+@media (max-width: 900px){
+
+    .page-content{
+        padding: 30px 5% 60px;
+    }
+
+    .page-header{
+        padding-top: 30px;
+    }
+
+    .page-header h2{
+        margin-top: -30px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .description{
+        font-size: 16px;
+        line-height: 1.7;
+        margin-top: -10px;
+    }
+
+    .feature-row{
+        grid-template-columns: 1fr;
+    }
+
+    .product-image{
+        height: 420px;
+        border-radius: 28px;
+    }
+
+    .features-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid{
+        gap: 14px;
+    }
+
+    .step-card{
+        padding: 22px 18px;
+    }
+
+    .section-title{
+        font-size: 1.8rem;
+    }
+
+    .imageGlow{
+        width: 320px;
+        height: 320px;
+        filter: blur(70px);
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 700px){
+
+    .page-content{
+        padding: 20px 4% 50px;
+        margin-top: 0;
+    }
+
+    .tag{
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 8px 14px;
+    }
+
+    .leftSection h1{
+        font-size: 42px;
+        line-height: 1.05;
+    }
+
+    .page-header h2{
+        font-size: .9rem;
+        margin-top: -10px;
+    }
+
+    .description{
+        font-size: 14px;
+        margin-top: 0;
+        line-height: 1.8;
+    }
+
+    .main-grid{
+        gap: 20px;
+    }
+
+    .sidebar{
+        flex-direction: column;
+    }
+
+    .panel{
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .product-image{
+        height: 300px;
+        border-radius: 24px;
+    }
+
+    .feature-box{
+        padding: 16px;
+    }
+
+    .feature-box h4{
+        font-size: 12px;
+    }
+
+    .feature-box p{
+        font-size: 12px;
+    }
+
+    .steps-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .section-title{
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .step-number{
+        font-size: 2rem;
+    }
+
+    .feature-item{
+        font-size: 12px;
+        padding: 18px;
+    }
+
+    .imageCard{
+        border-radius: 24px;
+    }
+
+    .imageGlow{
+        width: 220px;
+        height: 220px;
+        filter: blur(50px);
+    }
+
+    .stat-box{
+        width: 100%;
+        min-width: unset;
+    }
+
+    .site-footer{
+        text-align: center;
+        padding-inline: 20px;
+    }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 480px){
+
+    .leftSection h1{
+        font-size: 34px;
+    }
+
+    .description{
+        font-size: 13px;
+    }
+
+    .product-image{
+        height: 240px;
+    }
+
+    .feature-box,
+    .step-card,
+    .feature-item{
+        border-radius: 16px;
+    }
+
+    .panel{
+        border-radius: 16px;
+    }
+
+    .section{
+        padding: 35px 0;
+    }
+
+    .footerlabel{
+        font-size: 12px;
+        line-height: 1.6;
+    }
+}
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR — uses navContainer + navbar + logo + nav-links from css.css -->
+
+   <!-- NAVBAR -->
 <div class="navContainer">
-  <nav class="navbar">
-    <a href="../index.html" class="logo">NEUROLINK</a>
-    <div class="nav-links">
-      <a href="../index.html">HOME</a>
-      <a href="features.html" class="active">FEATURES</a>
-      <a href="technology.html">TECHNOLOGY</a>
-      <a href="support.html">SUPPORT</a>
-    </div>
-  </nav>
-</div>  
+    <nav class="navbar">
+
+        <a href="../index.html" class="logo">NEUROLINK</a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="../index.html">HOME</a>
+            <a href="features.html" class="active">FEATURES</a>
+            <a href="technology.html">TECHNOLOGY</a>
+            <a href="support.html">SUPPORT</a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="menu-toggle" id="menuToggle">
+            ☰
+        </div>
+
+    </nav>
+</div>
 
 <!-- PAGE CONTENT -->
 <div class="page-content">
@@ -505,10 +779,10 @@
 
 
     <!-- MAIN GRID -->
-    <section class="main-grid fade-section">
+    <section class="main-grid">
 
         <!-- LEFT SIDEBAR -->
-        <aside class="sidebar">
+        <aside class="sidebar fade-section">
             <div class="panel">
                 <h3>COMFORT PADDING</h3>
                 <p>Soft, breathable padding ensures a secure and comfortable fit during extended use.</p>
@@ -525,7 +799,7 @@
         </aside>
 
         <!-- CENTER -->
-        <div class="centerpiece">
+        <div class="centerpiece fade-section">
             <div class="feature-row">
                 <div class="feature-box">
                     <h4>NEURAL SENSORS (EEG)</h4>
@@ -541,12 +815,12 @@
                 </div>
             </div>
 
-            <div class="product-image">
+            <div class="product-image fade-section">
                <img src="../images/2.png" alt="Neurolink Headband">
                 <span class="product-image-placeholder"></span>
             </div>
 
-            <div class="feature-row">
+            <div class="feature-row fade-section">
                 <div class="feature-box">
                     <h4>HIGH-PERFORMANCE CHIP</h4>
                     <p>AI processor interprets signals in real time.</p>
@@ -563,7 +837,7 @@
         </div>
 
         <!-- RIGHT SIDEBAR -->
-        <aside class="sidebar">
+        <aside class="sidebar fade-section">
             <div class="panel">
                 <h3>ADJUSTABLE FRAME</h3>
                 <p>Durable, lightweight frame with flexible joints for a secure fit on any head size.</p>
@@ -648,5 +922,12 @@ const observer = new IntersectionObserver((entries)=>{
 
 sections.forEach((section)=>{
     observer.observe(section);
+});
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
 });
 </script>
