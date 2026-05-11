@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NEUROLINK — Brain-Controlled WiFi Headband</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css.css">
+    <style>
+        .contents{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly; 
+            margin-top: 50px;
+        }
+        .viewProduct1{
+            background-image: url("../images/viewProduct2.png");
+            width: 555px;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            transform: rotate(-4deg);
+        }
+        .viewProduct2{
+            background-image: url("../images/viewProduct1.png");
+            width: 540px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            transform: rotate(-12deg);
+            /* margin-left: 500px; */
+            
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navContainer">
+        <nav class="navbar">
+            <a href="../index.html" class="logo">NEUROLINK</a>
+            <div class="nav-links">
+                <a href="../index.html" class="active">HOME</a>
+                <a href="features.html">FEATURES</a>
+                <a href="technology.html">TECHNOLOGY</a>
+                <a href="support.html">SUPPORT</a>
+            </div>
+        </nav>
+    </div>
+    <div class="contents fade-section">
+        <div class="viewProduct1"></div>
+        <div class="viewProduct2"></div>
+    </div>
+</body>
+</html>
+
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+},{
+    threshold: 0.2
+});
+
+sections.forEach((section)=>{
+    observer.observe(section);
+});
+</script>
